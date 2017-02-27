@@ -52,6 +52,6 @@ Test out the script by running:
 If all goes well, the blink(1) should flash green or red depending on whether the site is up or down.
 
 ## Going further
-It is very easy to change the colours or the number of times the LED blinks by editing the relevant parts in the `pi-ping.py` file. It should be pretty self-explanatory!
+It is very easy to change the colours or the number of times the LED blinks by editing the relevant parts in the `pi-ping.py` file. It should be pretty self-explanatory, but there is a lot more information on the [ThingM Github page regarding the command line tool](https://github.com/todbot/blink1/blob/master/docs/blink1-tool.md)!
 
 Also, if you feel you can improve this script then please feel free to contribute!
