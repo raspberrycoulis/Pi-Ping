@@ -1,5 +1,5 @@
 # Pi-Ping
-A quick and simple Python script that checks the status of a website, then uses ThingM's blink(1) USB RGB LED notification light to provide a visual indication of the status.
+A quick and simple Python script that checks the status of a website, then uses [ThingM's blink(1)](https://blink1.thingm.com/ "ThingM's blink(1)") USB RGB LED notification light to provide a visual indication of the status.
 
 ## Installation
 This requires a few pre-requistes:
