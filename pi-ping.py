@@ -1,9 +1,25 @@
 #!/usr/bin/python
 
+# This Python script will ping a website and return the relevant HTTP status code.
+# It will then issue a command using the blink1-tool to blink a RGB LED, providing
+# a visual indication of the website's status:
+#
+# Green = website is up and running
+# Red = website is not working properly
+#
+# More on HTTP status codes found here: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+#
+# Feel free to improve as I made this quickly and I'm not a coding ninja!
+#
+# By: Wesley Archer (aka. Raspberry Coulis)
+# Web: https://www.raspberrycoulis.co.uk
+# Twitter: https://twitter.com/raspberrycoulis
+# Email: wesley@raspberrycoulis.co.uk
+
 import requests
 import os
 
-website = "https://ghostpi.pro/"
+website = "https://ghostpi.pro/"    # Replace this with the website you want to ping
 
 response = requests.get(website)
 
