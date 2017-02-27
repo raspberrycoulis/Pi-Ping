@@ -19,7 +19,7 @@
 import requests
 import os
 
-website = "https://ghostpi.pro/"    # Replace this with the website you want to ping
+website = "https://www.google.co.uk/"    # Replace this with the website you want to ping
 
 response = requests.get(website)
 
