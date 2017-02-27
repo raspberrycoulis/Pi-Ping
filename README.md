@@ -39,7 +39,7 @@ To clone this repo, run the following command in your command line:
     $ git clone https://github.com/raspberrycoulis/Pi-Ping.git
 
 ### Usage
-The script will, by default, check the HTTP status of Google.com. You can change this in the code easily, by changing the `website` variable, replacing "https://www.google.co.uk" with your website.
+The script will, by default, check the HTTP status of Google. You can change this in the code easily, by changing the `website` variable, replacing "https://www.google.co.uk" with your website.
 
 Before running the script, make sure it is executable by running (assuming you have cloned this in your home directory):
 
