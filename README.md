@@ -59,7 +59,7 @@ This will tell the Pi to run your script on boot:
 
     sudo nano /lib/systemd/system/ping.service
 
-Then add the following text to your file (you may need to adjust the path for your `pi-ping.py` script depending on where it is located (the part `/home/pi/Pi-ping/pi-ping.py`):
+Then add the following text to your file (you may need to adjust the path for your `pi-ping.py` script depending on where it is located (the part `/home/pi/Pi-Ping/pi-ping.py`):
 
     [Unit]
     Description=Pi-Ping service by Raspberry Coulis
@@ -67,7 +67,7 @@ Then add the following text to your file (you may need to adjust the path for yo
 
     [Service]
     Type=idle
-    ExecStart=/usr/bin/python /home/pi/Pi-ping/pi-ping.py
+    ExecStart=/usr/bin/python /home/pi/Pi-Ping/pi-ping.py
 
     [Install]
     WantedBy=multi-user.target
