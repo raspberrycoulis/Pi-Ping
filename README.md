@@ -10,7 +10,7 @@ This requires a few pre-requistes:
 ### ThingM's blink(1)
 Install in your command line with:
 
-    $ sudo apt-get install libusb-1.0-0-dev
+    $ sudo apt-get install libusb-1.0-0-dev git-core
     $ git clone https://github.com/todbot/blink1.git
     $ cd blink1/commandline
     $ make
