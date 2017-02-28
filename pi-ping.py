@@ -20,7 +20,7 @@ import requests
 import os
 import time
 
-website = "https://ghostpi.pro/"    # Replace this with the website you want to ping
+website = "https://www.google.co.uk/"    # Replace this with the website you want to ping
 wait = 1800   # Time (in seconds) in between pings - Default: 1800 (30 mins)
 
 def ping():
