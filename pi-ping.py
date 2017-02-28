@@ -18,31 +18,47 @@
 
 import requests
 import os
+import time
 
-website = "https://www.google.co.uk/"    # Replace this with the website you want to ping
+website = "https://ghostpi.pro/"    # Replace this with the website you want to ping
+wait = 1800   # Time (in seconds) in between pings - Default: 1800 (30 mins)
 
-response = requests.get(website)
+def ping():
+  while True:
+    response = requests.get(website)
 
-if int(response.status_code) == 200: # OK
-    os.system("./blink1/commandline/blink1-tool -q -m 500 --green --blink 3")
+    if int(response.status_code) == 200: # OK
+      os.chdir("/home/pi/")
+      os.system("./blink1/commandline/blink1-tool -q -m 500 --green --blink 3")
+
+    elif int(response.status_code) == 500: # Internal server error
+      os.chdir("/home/pi/")
+      os.system("./blink1/commandline/blink1-tool -q -m 500 --red --blink 3")
     
-elif int(response.status_code) == 500: # Internal server error
-    os.system("./blink1/commandline/blink1-tool -q -m 500 --red --blink 3")
-
-elif int(response.status_code) == 503: # Service unavailable
-    os.system("./blink1/commandline/blink1-tool -q -m 500 --red --blink 3")
-
-elif int(response.status_code) == 502: # Bad gateway
-    os.system("./blink1/commandline/blink1-tool -q -m 500 --red --blink 3")
-
-elif int(response.status_code) == 520: # Cloudflare: Unknown error
-    os.system("./blink1/commandline/blink1-tool -q -m 500 --red --blink 3")
+    elif int(response.status_code) == 503: # Service unavailable
+      os.chdir("/home/pi/")
+      os.system("./blink1/commandline/blink1-tool -q -m 500 --red --blink 3")
     
-elif int(response.status_code) == 522: # Cloudflare: Connection timed out
-    os.system("./blink1/commandline/blink1-tool -q -m 300 --red --blink 5")
+    elif int(response.status_code) == 502: # Bad gateway
+      os.chdir("/home/pi/")
+      os.system("./blink1/commandline/blink1-tool -q -m 500 --red --blink 3")
     
-elif int(response.status_code) == 523: # Cloudflare: Origin is unreachable
-    os.system("./blink1/commandline/blink1-tool -q -m 300 --red --blink 10")
+    elif int(response.status_code) == 520: # Cloudflare: Unknown error
+      os.chdir("/home/pi/")
+      os.system("./blink1/commandline/blink1-tool -q -m 500 --red --blink 3")
     
-elif int(response.status_code) == 524: # Cloudflare: A Timeout occurred
-    os.system("./blink1/commandline/blink1-tool -q -m 500 --red --blink 3")
+    elif int(response.status_code) == 522: # Cloudflare: Connection timed out
+      os.chdir("/home/pi/")      
+      os.system("./blink1/commandline/blink1-tool -q -m 300 --red --blink 5")
+    
+    elif int(response.status_code) == 523: # Cloudflare: Origin is unreachable
+      os.chdir("/home/pi/")
+      os.system("./blink1/commandline/blink1-tool -q -m 300 --red --blink 10")
+    
+    elif int(response.status_code) == 524: # Cloudflare: A Timeout occurred
+      os.chdir("/home/pi/")
+      os.system("./blink1/commandline/blink1-tool -q -m 500 --red --blink 3")
+
+    time.sleep(wait)
+
+ping()
