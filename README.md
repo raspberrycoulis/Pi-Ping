@@ -51,6 +51,49 @@ Test out the script by running:
 
 If all goes well, the blink(1) should flash green or red depending on whether the site is up or down.
 
+## Running on boot
+The script is set to check the status of your set website every 30 minutes (1800 seconds), but to run this on boot you can do so using `systemd`:
+
+### 1. Create Unit file
+This will tell the Pi to run your script on boot:
+
+    sudo nano /lib/systemd/system/ping.service
+
+Then add the following text to your file (you may need to adjust the path for your `pi-ping.py` script depending on where it is located (the part `/home/pi/Pi-ping/pi-ping.py`):
+
+    [Unit]
+    Description=Pi-Ping service by Raspberry Coulis
+    After=multi-user.target
+
+    [Service]
+    Type=idle
+    ExecStart=/usr/bin/python /home/pi/Pi-ping/pi-ping.py
+
+    [Install]
+    WantedBy=multi-user.target
+
+Exit, `ctrl + x`, and save `y` to create the service unit file.
+
+### 2. Set the relevant permissions
+Make sure that the permissions are set correctly:
+
+    sudo chmod 644 /lib/systemd/system/ping.service
+
+### 3. Configure systemd
+Make sure that systemd can use your newly created unit file:
+
+    sudo systemctl daemon-reload
+    sudo systemctl enable ping.service
+
+Reboot the Pi to test via `sudo reboot`.
+
+### 4. Check on the status of your service
+Check that the service has started by running:
+
+    sudo systemctl status ping.service
+
+If done correctly, you should see that your `pi-ping.py` script is now running!
+
 ## Going further
 It is very easy to change the colours or the number of times the LED blinks by editing the relevant parts in the `pi-ping.py` file. It should be pretty self-explanatory, but there is a lot more information on the [ThingM Github page regarding the command line tool](https://github.com/todbot/blink1/blob/master/docs/blink1-tool.md)!
 
