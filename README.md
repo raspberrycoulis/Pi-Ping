@@ -48,6 +48,7 @@ The script will, by default, check the HTTP status of Google. You can change thi
 
 Before running the script, make sure it is executable by running (assuming you have cloned this in your home directory):
 
+    $ cd Pi-Ping
     $ chmod +x pi-ping.py
 
 Test out the script by running:
