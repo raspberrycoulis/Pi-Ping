@@ -21,6 +21,7 @@ Install in your command line with:
 
 Update udev rules so you don't need to run as `sudo` every time:
 
+    $ cd ~
     $ cd blink1/linux
     $ sudo cp 51-blink1.rules /etc/udev/rules.d/
     $ sudo udevadm control --reload-rules
